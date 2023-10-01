@@ -26,7 +26,10 @@ export class User {
         console.log("show");
     }
 
+    //Mostrar tweets
     showTweets() {
-        console.log("showTweets");
+        for (let item of this.tweets) {
+            console.log(`@${this.username}: ${item.content}`);
+        }
     }
 }

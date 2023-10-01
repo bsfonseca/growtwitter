@@ -9,4 +9,4 @@ daphne.sendTweet("Vou para pracinha");
 
 bruna.sendTweet("A comida esta pronta");
 
-console.log(daphne);
+daphne.showTweets();
