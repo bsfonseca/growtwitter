@@ -4,10 +4,12 @@ import { Tweet } from "./tweet";
 export class User {
     private id: string;
     private tweets: Tweet[];
+    public followers: User[];
 
     constructor(public name: string, public username: string, public email: string, private password: string) {
         this.id = v4();
         this.tweets = [];
+        this.followers = [];
     }
 
     sendTweet(conteudo: string) {
@@ -18,8 +20,8 @@ export class User {
         this.tweets.push(tweet);
     }
 
-    follow() {
-        console.log("follow");
+    follow(user: User) {
+        this.followers.push(user);
     }
 
     showFeed() {
@@ -29,7 +31,7 @@ export class User {
     //Mostrar tweets
     showTweets() {
         for (let item of this.tweets) {
-            console.log(`@${this.username}: ${item.content}`);
+            item.show(this.username);
         }
     }
 }

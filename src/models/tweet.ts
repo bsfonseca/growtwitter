@@ -15,8 +15,8 @@ export class Tweet {
         console.log("like");
     }
 
-    show() {
-        console.log("show");
+    show(username: string) {
+        console.log(`@${username}: ${this.content}`);
     }
 
     showReplies() {
