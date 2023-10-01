@@ -13,6 +13,6 @@ bruna.sendTweet("A comida esta pronta");
 daphne.follow(bruna);
 
 daphne.reply("Obaaa!!!", tweetPassear);
-daphne.reply("uhul!!!", tweetPracinha);
+bruna.reply("Vou com vc", tweetPracinha);
 
 daphne.showTweets();

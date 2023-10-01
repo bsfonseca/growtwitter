@@ -14,7 +14,7 @@ export class User {
 
     sendTweet(conteudo: string) {
         // Cria a instancia de um tweet
-        const tweet = new Tweet(conteudo, "N");
+        const tweet = new Tweet(conteudo, "N", this);
 
         // Adiciona o tweet na lista do usuario
         this.tweets.push(tweet);
@@ -43,6 +43,6 @@ export class User {
     }
 
     reply(conteudo: string, tweet: Tweet) {
-        tweet.reply(conteudo);
+        tweet.reply(conteudo, this);
     }
 }
