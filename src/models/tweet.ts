@@ -1,14 +1,17 @@
 import { v4 } from "uuid";
 
 export class Tweet {
-    private id: string;
+    public id: string;
+    public replies: Tweet[];
 
     constructor(public content: string, public type: string) {
         this.id = v4();
+        this.replies = [];
     }
 
-    reply() {
-        console.log("reply");
+    reply(conteudo: string) {
+        const reply = new Tweet(conteudo, "R");
+        this.replies.push(reply);
     }
 
     like() {

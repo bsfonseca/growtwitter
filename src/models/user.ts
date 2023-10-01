@@ -18,6 +18,8 @@ export class User {
 
         // Adiciona o tweet na lista do usuario
         this.tweets.push(tweet);
+
+        return tweet;
     }
 
     follow(user: User) {
@@ -38,5 +40,9 @@ export class User {
         for (let item of this.tweets) {
             item.show(this.username);
         }
+    }
+
+    reply(conteudo: string, tweet: Tweet) {
+        tweet.reply(conteudo);
     }
 }
