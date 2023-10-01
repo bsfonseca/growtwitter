@@ -11,3 +11,6 @@ bruna.sendTweet("A comida esta pronta");
 daphne.follow(bruna);
 
 daphne.showTweets();
+
+daphne.follow(daphne);
+console.log(daphne);

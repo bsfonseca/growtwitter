@@ -21,6 +21,11 @@ export class User {
     }
 
     follow(user: User) {
+        if (user.username == this.username) {
+            console.log("Você não pode seguir a si mesmo");
+            return;
+        }
+
         this.followers.push(user);
     }
 
