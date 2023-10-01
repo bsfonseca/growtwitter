@@ -11,7 +11,8 @@ const bruna = users[1];
 bruna.sendTweet("A comida esta pronta");
 
 daphne.follow(bruna);
-daphne.showTweets();
 
 daphne.reply("Obaaa!!!", tweetPassear);
 daphne.reply("uhul!!!", tweetPracinha);
+
+daphne.showTweets();

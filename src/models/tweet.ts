@@ -20,6 +20,10 @@ export class Tweet {
 
     show(username: string) {
         console.log(`@${username}: ${this.content}`);
+
+        for (let item of this.replies) {
+            console.log(` > @${username}: ${item.content}`);
+        }
     }
 
     showReplies() {
