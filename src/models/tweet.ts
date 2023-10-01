@@ -2,9 +2,11 @@ import { v4 } from "uuid";
 
 export class Tweet {
     private id: string;
+
     constructor(public content: string, public type: string) {
         this.id = v4();
     }
+
     reply() {
         console.log("reply");
     }
