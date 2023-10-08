@@ -28,9 +28,7 @@ export class Tweet {
     show(username: string) {
         console.log(`@${username}: ${this.content}`);
 
-        for (let item of this.replies) {
-            console.log(` > @${item.user.username}: ${item.content}`);
-        }
+        this.showReplies();
 
         if (this.likes.length == 1) {
             console.log(`[@${this.likes[0].username} curtiu]`);
@@ -42,6 +40,8 @@ export class Tweet {
     }
 
     showReplies() {
-        console.log("showReplies");
+        for (let item of this.replies) {
+            console.log(` > @${item.user.username}: ${item.content}`);
+        }
     }
 }
