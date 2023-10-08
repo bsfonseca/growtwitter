@@ -29,6 +29,11 @@ export class Tweet {
     // Adicionar uma curtida na lista de likes
     // Um like é feito por um usuário
     like(usuario: User) {
+        if (this.likes.includes(usuario)) {
+            console.log("Não é permitido curtir novamente");
+            return;
+        }
+
         this.likes.push(usuario);
     }
 
