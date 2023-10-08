@@ -1,5 +1,5 @@
 import { v4 } from "uuid";
-import { Tweet } from "./tweet";
+import { TipoTweet, Tweet } from "./tweet";
 
 export class User {
     private id: string;
@@ -11,18 +11,19 @@ export class User {
         this.tweets = [];
         this.followers = [];
     }
-    // Para o usuário criar um tweet
 
+    // Criar um tweet para o usuário
     sendTweet(conteudo: string) {
-        // Cria a instancia de um tweet
-        const tweet = new Tweet(conteudo, "N", this);
+        // Cria a instância de um tweet
+        const tweet = new Tweet(conteudo, TipoTweet.Normal, this);
 
-        // Adiciona o tweet na lista do usuario
+        // Adiciona o tweet na lista do usuário
         this.tweets.push(tweet);
 
         return tweet;
     }
-    // Seguir
+
+    // Seguir um outro usuário
     follow(user: User) {
         if (user.username == this.username) {
             console.log("Você não pode seguir a si mesmo");
@@ -31,7 +32,15 @@ export class User {
 
         this.followers.push(user);
     }
-    //Mostrar tweets dos seguidores
+
+    // Mostrar tweets do usuário
+    showTweets() {
+        for (let item of this.tweets) {
+            item.show();
+        }
+    }
+
+    // Mostrar os tweets do usuário e dos seguidores
     showFeed() {
         this.showTweets();
 
@@ -40,13 +49,7 @@ export class User {
         }
     }
 
-    //Mostrar tweets do usuário
-    showTweets() {
-        for (let item of this.tweets) {
-            item.show(this.username);
-        }
-    }
-    //Resposta
+    // Fazer um reply para um tweet
     reply(conteudo: string, tweet: Tweet) {
         tweet.reply(conteudo, this);
     }
