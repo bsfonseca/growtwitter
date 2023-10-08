@@ -11,6 +11,7 @@ export class User {
         this.tweets = [];
         this.followers = [];
     }
+    // Para o usuário criar um tweet
 
     sendTweet(conteudo: string) {
         // Cria a instancia de um tweet
@@ -21,7 +22,7 @@ export class User {
 
         return tweet;
     }
-
+    // Seguir
     follow(user: User) {
         if (user.username == this.username) {
             console.log("Você não pode seguir a si mesmo");
@@ -30,18 +31,22 @@ export class User {
 
         this.followers.push(user);
     }
-
+    //Mostrar tweets dos seguidores
     showFeed() {
-        console.log("show");
+        this.showTweets();
+
+        for (let item of this.followers) {
+            item.showTweets();
+        }
     }
 
-    //Mostrar tweets
+    //Mostrar tweets do usuário
     showTweets() {
         for (let item of this.tweets) {
             item.show(this.username);
         }
     }
-
+    //Resposta
     reply(conteudo: string, tweet: Tweet) {
         tweet.reply(conteudo, this);
     }
